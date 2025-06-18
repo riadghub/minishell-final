@@ -6,7 +6,7 @@
 /*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 10:16:04 by reeer-aa          #+#    #+#             */
-/*   Updated: 2025/06/18 11:42:16 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/18 13:28:08 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int	preprocess_heredocs_in_node(t_ast_node *node)
 
 void	cleanup_temp_files(t_ast_node *node)
 {
-	t_redir *redir;
+	t_redir	*redir;
 
 	if (!node)
 		return ;

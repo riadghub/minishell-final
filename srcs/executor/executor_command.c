@@ -6,7 +6,7 @@
 /*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 15:40:00 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/18 10:21:08 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/18 13:49:28 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int	execute_ast(t_ast_node *node, t_env *env)
 		return (0);
 	env->ast_cleanup = node;
 	if (preprocess_heredocs_in_node(node) != 0)
-	{
-		// cleanup_temp_files(node);
 		return (1);
-	}
 	if (node->type == NODE_COMMAND)
 		g_signal_status = execute_command(node, env);
 	else if (node->type == NODE_PIPE)
