@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gekido <gekido@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:39:05 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/16 21:03:51 by gekido           ###   ########.fr       */
+/*   Updated: 2025/06/18 10:16:59 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 typedef struct s_child_data
 {
-	char		*path;
-	char		**args;
-	char		**env_vars;
-}				t_child_data;
+	char				*path;
+	char				**args;
+	char				**env_vars;
+}						t_child_data;
 
 typedef struct s_env
 {
@@ -90,5 +90,8 @@ int						is_valid_n_option(char *arg);
 
 void					setup_signals(void);
 void					sigint_handler(int sig);
+
+int						preprocess_heredocs_in_node(t_ast_node *node);
+void					cleanup_temp_files(t_ast_node *node);
 
 #endif

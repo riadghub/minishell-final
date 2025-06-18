@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_command.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gekido <gekido@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 15:40:00 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/17 01:03:16 by gekido           ###   ########.fr       */
+/*   Updated: 2025/06/18 10:21:08 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,17 @@ int	execute_ast(t_ast_node *node, t_env *env)
 	if (!node)
 		return (0);
 	env->ast_cleanup = node;
+	if (preprocess_heredocs_in_node(node) != 0)
+	{
+		// cleanup_temp_files(node);
+		return (1);
+	}
 	if (node->type == NODE_COMMAND)
 		g_signal_status = execute_command(node, env);
 	else if (node->type == NODE_PIPE)
 		g_signal_status = execute_pipe(node, env);
 	else
 		g_signal_status = 1;
-	env->ast_cleanup = NULL;
 	return (g_signal_status % 256);
 }
 
@@ -66,7 +70,7 @@ int	execute_command_node(t_ast_node *node, t_env *env)
 
 int	execute_command(t_ast_node *node, t_env *env)
 {
-	int		result;
+	int	result;
 
 	if (!node->redirects)
 		return (execute_command_node(node, env));
@@ -80,7 +84,7 @@ int	execute_command(t_ast_node *node, t_env *env)
 
 int	execute_command_child(t_ast_node *node, t_env *env)
 {
-	int		result;
+	int	result;
 
 	if (setup_redirections(node->redirects, env) != 0)
 		return (1);

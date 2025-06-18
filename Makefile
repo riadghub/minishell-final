@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gekido <gekido@student.42.fr>              +#+  +:+       +#+         #
+#    By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 00:13:59 by gekido            #+#    #+#              #
-#    Updated: 2025/06/17 01:51:36 by gekido           ###   ########.fr        #
+#    Updated: 2025/06/18 10:18:11 by reeer-aa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS	= $(SRC_DIR)/main.c \
 		$(EXECUTOR_DIR)/executor_command.c \
 		$(EXECUTOR_DIR)/executor_command_utils.c \
 		$(EXECUTOR_DIR)/executor_heredoc.c \
+		$(EXECUTOR_DIR)/executor_heredoc_pre.c \
 		$(EXECUTOR_DIR)/executor_external.c \
 		$(EXECUTOR_DIR)/executor_external_env.c \
 		$(EXECUTOR_DIR)/executor_external_utils.c \
