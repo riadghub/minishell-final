@@ -6,7 +6,7 @@
 /*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:04:08 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/19 11:55:00 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/19 13:31:14 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "expand.h"
 # include "lexer.h"
 # include "parser.h"
+# include "colors.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <readline/history.h>

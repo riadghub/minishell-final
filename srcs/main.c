@@ -6,7 +6,7 @@
 /*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:08:55 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/19 11:59:51 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/19 13:34:03 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,24 @@ void	handle_command(char *input, t_env *env)
 int	run_minishell_loop(t_env *env)
 {
 	char	*input;
+	char	*prompt;
 
 	while (1)
 	{
-		input = readline("minishell$ ");
+		prompt = get_colored_prompt(env);
+		if (!prompt)
+			prompt = ft_strdup("minishell$ ");
+		input = readline(prompt);
+		free(prompt);
 		if (!input)
 		{
 			printf("exit\n");
 			break ;
 		}
 		if (!process_input(input, env))
-		{
 			break ;
-		}
 		if (should_exit())
-		{
 			break ;
-		}
 	}
 	return (get_exit_code());
 }

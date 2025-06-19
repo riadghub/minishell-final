@@ -6,7 +6,7 @@
 #    By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 00:13:59 by gekido            #+#    #+#              #
-#    Updated: 2025/06/19 11:55:45 by reeer-aa         ###   ########.fr        #
+#    Updated: 2025/06/19 13:30:34 by reeer-aa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,9 @@ SRCS	= $(SRC_DIR)/main.c \
 		$(UTILS_DIR)/utils.c \
 		$(UTILS_DIR)/utils2.c \
 		$(UTILS_DIR)/cleanup.c \
+		$(UTILS_DIR)/colors.c \
+		$(UTILS_DIR)/prompt_builder.c \
+		$(UTILS_DIR)/prompt_utils.c \
 		$(EXPAND_DIR)/expand.c \
 		$(EXPAND_DIR)/expand_utils.c \
 		$(EXPAND_DIR)/expand_helpers.c \
