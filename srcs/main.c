@@ -6,7 +6,7 @@
 /*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:08:55 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/18 13:24:58 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:59:51 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ int	run_minishell_loop(t_env *env)
 			break ;
 		}
 		if (!process_input(input, env))
+		{
+			break ;
+		}
+		if (should_exit())
 		{
 			break ;
 		}
