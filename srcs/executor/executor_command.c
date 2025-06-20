@@ -6,7 +6,7 @@
 /*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 15:40:00 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/18 13:49:28 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/20 15:55:47 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,27 @@ int	execute_command_child(t_ast_node *node, t_env *env)
 {
 	int	result;
 
+	env->saved_stdin = dup(STDIN_FILENO);
+	env->saved_stdout = dup(STDOUT_FILENO);
 	if (setup_redirections(node->redirects, env) != 0)
+	{
+		if (env->saved_stdin != -1)
+			close(env->saved_stdin);
+		if (env->saved_stdout != -1)
+			close(env->saved_stdout);
 		return (1);
+	}
 	result = execute_command_node(node, env);
 	update_exit_status(result);
+	if (env->saved_stdin != -1)
+	{
+		dup2(env->saved_stdin, STDIN_FILENO);
+		close(env->saved_stdin);
+	}
+	if (env->saved_stdout != -1)
+	{
+		dup2(env->saved_stdout, STDOUT_FILENO);
+		close(env->saved_stdout);
+	}
 	return (g_signal_status % 256);
 }
