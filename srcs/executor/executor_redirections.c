@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_redirections.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gekido <gekido@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:05:00 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/18 10:18:50 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/20 23:45:43 by gekido           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	setup_redirection_out(t_redir *redir)
 	{
 		ft_putstr_fd("minishell: ", 2);
 		ft_putstr_fd(redir->file, 2);
-		ft_putendl_fd(": Cannot open file", 2);
+		ft_putendl_fd(": Permission denied", 2);
 		return (1);
 	}
 	if (dup2(fd, STDOUT_FILENO) == -1)
@@ -63,7 +63,7 @@ int	setup_redirection_append(t_redir *redir)
 	{
 		ft_putstr_fd("minishell: ", 2);
 		ft_putstr_fd(redir->file, 2);
-		ft_putendl_fd(": Cannot open file", 2);
+		ft_putendl_fd(": Permission denied", 2);
 		return (1);
 	}
 	if (dup2(fd, STDOUT_FILENO) == -1)

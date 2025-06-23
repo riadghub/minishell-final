@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins_env_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gekido <gekido@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:00:00 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/17 01:03:16 by gekido           ###   ########.fr       */
+/*   Updated: 2025/06/23 10:49:39 by reeer-aa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	update_env_var(t_env *env, char *key, char *value)
 	free(var);
 }
 
-void	print_invalid_identifier_error(char *var)
+void	print_invalid(char *var)
 {
 	ft_putstr_fd("minishell: export: `", 2);
 	ft_putstr_fd(var, 2);

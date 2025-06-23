@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reeer-aa <reeer-aa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gekido <gekido@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:39:05 by gekido            #+#    #+#             */
-/*   Updated: 2025/06/18 13:25:15 by reeer-aa         ###   ########.fr       */
+/*   Updated: 2025/06/21 00:57:12 by gekido           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ int						find_env_var_index(char **vars, char *var, int len);
 int						setup_redirections(t_redir *redirects, t_env *env);
 int						setup_redirection_in(t_redir *redir);
 int						setup_redirection_out(t_redir *redir);
+int						handle_heredoc_input(t_redir *redir, int fd,
+							int original_stdin);
+void					heredoc_signal_handler(int sig);
 int						setup_redirection_append(t_redir *redir);
 int						handle_heredoc(t_redir *redir, t_env *env);
 
